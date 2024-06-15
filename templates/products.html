@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<h1>Products</h1>
+<div class="products">
+    {% for product in products %}
+        <div class="product">
+            <img src="{{ product[4] }}" alt="{{ product[1] }}">
+            <h3>{{ product[1] }}</h3>
+            <p>{{ product[2] }}</p>
+            <p>Price: ${{ product[3] }}</p>
+            <a href="{{ url_for('add_to_cart', product_id=product[0]) }}">Add to Cart</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
